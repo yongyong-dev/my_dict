@@ -12,11 +12,14 @@ struct ContentView: View {
     @State private var isAddingItem = false
     @State private var newItemName = ""
     @State private var newItemDescription = ""
+    @State private var searchText = ""
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(items, id: \.id) { item in
+                SearchBar(text: $searchText)
+                
+                ForEach(filteredItems(searchText), id: \.id) { item in
                     NavigationLink(destination: ItemDetailView(item: item)) {
                         Text(item.name)
                     }
@@ -51,6 +54,14 @@ struct ContentView: View {
     
     func fetchItemsFromDatabase() {
         self.items = ItemDatabase.shared.fetchItems()
+    }
+    
+    func filteredItems(_ query: String) -> [Item] {
+        if query.isEmpty {
+            return items
+        } else {
+            return items.filter { $0.name.localizedCaseInsensitiveContains(query) }
+        }
     }
     
     func deleteItem(at offsets: IndexSet) {
