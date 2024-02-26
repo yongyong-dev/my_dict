@@ -16,14 +16,14 @@ struct AddItemView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Item Name")) {
-                    TextField("Enter item name", text: $itemName)
+                Section(header: Text("Word Name")) {
+                    TextField("Enter word name", text: $itemName)
                 }
-                Section(header: Text("Item Description")) {
-                    TextField("Enter item description", text: $itemDescription)
+                Section(header: Text("Word Description")) {
+                    TextField("Enter word description", text: $itemDescription)
                 }
             }
-            .navigationBarTitle("Add Item")
+            .navigationBarTitle("Add to Dict")
             .navigationBarItems(trailing:
                                     Button("Save") {
                 self.addItemAction()

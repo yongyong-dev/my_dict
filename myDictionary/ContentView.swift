@@ -26,7 +26,7 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteItem)
             }
-            .navigationBarTitle("Dictionary")
+            .navigationBarTitle("HIL Dictionary")
             .navigationBarItems(trailing:
                                     Button(action: {
                 self.isAddingItem = true

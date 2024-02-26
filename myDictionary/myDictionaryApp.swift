@@ -15,10 +15,3 @@ struct MyDictionaryApp: App {
         }
     }
 }
-
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
